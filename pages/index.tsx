@@ -1,19 +1,19 @@
-import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
-import { getSortedPostsData } from '../lib/posts'
-import Link from 'next/link'
-import Date from '../components/date'
-import { GetStaticProps } from 'next'
+import Head from "next/head";
+import Layout, { siteTitle } from "../components/layout";
+import utilStyles from "../styles/utils.module.css";
+import { getSortedPostsData } from "../lib/posts";
+import Link from "next/link";
+import Date from "../components/date";
+import { GetStaticProps } from "next";
 
 export default function Home({
-  allPostsData
+  allPostsData,
 }: {
   allPostsData: {
-    date: string
-    title: string
-    id: string
-  }[]
+    date: string;
+    title: string;
+    id: string;
+  }[];
 }) {
   return (
     <Layout home>
@@ -21,9 +21,16 @@ export default function Home({
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>[Your Self Introduction]</p>
         <p>
-          (This is a sample website - you’ll be building a site like this in{' '}
+          I’m Mikhail Ivanov, a developer from Moscow.
+          <br />
+          I was born on April 2, 1996. In development since 2017.
+          <br />
+          You can contact me on My Portfolio
+        </p>
+        <p>
+          (This is a sample website on <i>NextJS</i> and <i>TypeScript</i> -
+          you’ll be building a site like this in{" "}
           <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
       </section>
@@ -44,14 +51,14 @@ export default function Home({
         </ul>
       </section>
     </Layout>
-  )
+  );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedPostsData()
+  const allPostsData = getSortedPostsData();
   return {
     props: {
-      allPostsData
-    }
-  }
-}
+      allPostsData,
+    },
+  };
+};
