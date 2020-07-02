@@ -1,7 +1,8 @@
 import Head from "next/head";
-import styles from "./layout.module.css";
-import utilStyles from "../styles/utils.module.css";
+import styles from "./layout.module.scss";
+import utilStyles from "../styles/utils.module.scss";
 import Link from "next/link";
+import {Button} from 'react-bootstrap'
 
 const name = "Mikhail Ivanov";
 export const siteTitle = "Next.js Sample Website + TypeScript";
@@ -13,6 +14,7 @@ export default function Layout({
   children: React.ReactNode;
   home?: boolean;
 }) {
+  console.log(utilStyles, styles);
   return (
     <div className={styles.container}>
       <Head>
@@ -31,6 +33,13 @@ export default function Layout({
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={styles.header}>
+        <div className={styles.container}>
+          <button className={"btn btn-primary " + styles.btnGradient}>
+            BS4
+          </button>
+          <Button className={`${styles.btnGradient}`}>SDF</Button>
+          <button className={styles.btnGradient2}>BS4</button>
+        </div>
         {home ? (
           <>
             <img
